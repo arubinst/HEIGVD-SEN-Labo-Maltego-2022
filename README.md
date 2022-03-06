@@ -62,9 +62,7 @@ Dès que **Run Transform** est sélectionné, Maltego commence son travail en tr
 
 ![HEIG scan](images/heig_scan.png)
 
-Vous pouvez voir dans les images ci-dessous que toutes sortes d'informations apparaissent, y compris les serveurs DNS, intranet, les sites qui peuvent avoir une certaine relation avec la cible, les emails associés, les serveurs de messagerie. Qu'est-ce que vous trouvez pour votre cas ? Faites des captures d'écran pour votre rendu et ajoutez vos commentaires !
-
-![Machines, names, emails](images/machines_names_emails.png)
+Vous pouvez voir dans les images ci-dessous que toutes sortes d'informations apparaissent, y compris les serveurs DNS, intranet, les sites qui peuvent avoir une certaine relation avec la cible, les emails associés, les serveurs de messagerie. Qu'est-ce que vous trouvez pour votre cas ? Faites des captures d'écran pour votre rendu et ajoutez vos commentaires !<img src="images/machines_names_emails.png" alt="Machines, names, emails" style="zoom:67%;" />
 
 ![Servers](images/servers.png)
 
@@ -146,6 +144,66 @@ Utilisez quelques résultats retrouvés lors de vos recherches précédentes pou
 Captures d'écran et commentaires en format PDF ou directement sur le README.md
 
 Le rendu se fait à travers un "pull request". 
+
+
+
+-----
+
+### Reconnaissance de réseau
+
+Le domain `ehnv.ch` a été choisi comme cible. On peut constater que Maltego arrive a récupéré un bon nombre d'éléments comme adresses mails, des serveurs de messageries, leur site internet et les archives de celui-ci ainsi que des serveurs DNS.
+
+![](images/q1.png)
+
+Un certains nombres d'adresses emails ont été trouvé, se sont des adresses génériques ainsi que des personnelles. Il y a aussi des numéros de téléphones qui permettent de joindre différents services de l'eHnv. 
+
+![](images/q1_1email.png)
+
+![](images/q1_tel.png)
+
+
+
+L'eHnv aussi connue sous établissements hospitaliers du Nord vaudois fait partie de la FHV (Fédération des hôpitaux vaudois) avec tous les autres hôpitaux du canton de Vaud. Pour tout ce qui concerne les systèmes informatiques des hôpitaux, ils sont régis par la FHVI (entité informatique de la FHV). On constatera donc qu'il y a deux NS Record relié à la fhvi (`ns1.fhvi.ch` et `ns2.fhvi.ch`). Lorsqu'on `run all transforms` dessus, on obtient des informations supplémentaires sur la fhvi.
+
+On retrouve des serveurs DNS, des noms de domaines en relation, une plage IPv4 bloquée (`194.209.198.0 à 194.209.198.255`)pour se NS ainsi que son adresse IP (`194.209.198.72`).
+
+![](images/q1_fhvi.png)
+
+J'ai vérifié que l'adresse IP de `ns1.fhvi.ch` soit celle obtenue avec la commande `nslookup` ce qui correspond.
+
+![](images/q1_fhvins.png)
+
+
+
+### Recherche d'une identité
+
+Dans un premier temps, je me suis recherché afin de découvrir les informations publiques disponible sur moi. Seul l'un des liens linkedin, github et le gymnase de burier me conserne. Toutes les autres informations n'ont aucun rapport avec moi.
+
+Cependant, ayant 3 manières différentes d'écrire mon nom de famille le résultat est parfois différents.![](images/q2_gd.png)
+
+Pour continuer avec l'eHnv, j'ai pris son directeur général Jean-François Cardis.
+
+On peut constater que son adresse email professionnelle a été trouvée, son compte linkedin, une ancienne présentation réalisée en 2013 (départ de son poste Directeur de soins) ainsi que des articles où il a été cité / participé (24heures, ...).
+
+Son adresse mail est une cible idéale pour du fishing visé. La récupération potentielle de ses identifiants   permettrait à l'attaquant d'avoir accès à un compte de l'un des plus hauts statuts hiérarchique. 
+
+![](images/q2_ehnv.png)
+
+
+
+### Recherche d'une adresse email
+
+J'ai recherché mon adresse email de l'école. Maltego récupère les informations ci-dessous. Il détecte correctement que l'adresse email est valide et existe ainsi que mon identité et le domaine `heig-vd.ch`. Il récupère aussi le niveau de `Deliverability` qui est à `high` (score de fraude de l'adresse). 
+
+![](images/q3_gd.png)
+
+
+
+### Installation et utilisation de nouvelles transformations
+
+
+
+
 
 # Echéance
 
