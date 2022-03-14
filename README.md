@@ -58,7 +58,7 @@ Ci-dessous ce trouve les résultats d'une recherche sur Maude Issolah. Les adres
 
 ![2022-03-03 11_00_44-Kali-Linux-2021.3-vbox-amd64 [En fonction] - Oracle VM VirtualBox](images/2022-03-03 11_00_44-Kali-Linux-2021.3-vbox-amd64 [En fonction] - Oracle VM VirtualBox.png)
 
-Le liens github retrouve un projet GEN que Maude avait fait. Swisslinux retrouve une formation qu'elle as suivi et whyopencomputing un pdf (ci-dessous) qu'elle à fait en 2018.
+Le liens github retrouve un projet GEN que Maude avait fait. Swisslinux est un forum qu'elle as utilisé et whyopencomputing un pdf (ci-dessous) qu'elle à fait en 2018.
 
 ![](images/2022-03-03 11_01_27-Kali-Linux-2021.3-vbox-amd64 [En fonction] - Oracle VM VirtualBox.png)
 
