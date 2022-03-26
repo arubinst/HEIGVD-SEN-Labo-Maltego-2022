@@ -183,7 +183,7 @@ J'ai commencé par me rechercher moi-même et j'ai obtenu les informations suiva
 
 ![image-20220303192948696](figures/image-20220303192948696.png)
 
-Malgré les multiples résultats, la majorité ne me concerne pas. Aucune des adresses mails obtenues ne m'appartiennent, seuls les comptes LinkedIn, GitHub et RootMe me concernent. Une page d'une site d'informations www.arcinfo.ch sur laquelle mon nom est inscrit a également été référencée. J'ai également tenté de lancer une recherche sur le pseudonyme que j'ai utilisé (en partant d'une entité Alias) sur le site RootMe mais elle n'a donné aucune information intéressante.
+Malgré les multiples résultats, la majorité ne me concerne pas. Aucune des adresses mails obtenues ne m'appartiennent, seuls les comptes LinkedIn, GitHub et RootMe me concernent. Une page d'un site d'informations www.arcinfo.ch sur laquelle mon nom est inscrit a également été référencée. J'ai également tenté de lancer une recherche sur le pseudonyme que j'ai utilisé (en partant d'une entité Alias) sur le site RootMe mais elle n'a donné aucune information intéressante.
 
 J'ai également lancé une recherche sur Stéphane Teixeira Carvalho et j'ai pu obtenir différentes informations en lien notamment avec le site web de la HEIG-VD, GitHub ainsi que le Swatch Group (site www.eta.ch) :
 
@@ -209,7 +209,7 @@ J'ai également essayé d'obtenir le nom et le prénom d'une connaissance en fon
 
 ![image-20220306133137391](figures/image-20220306133137391.png)
 
-Ceci afin de voir s'il était possible d'identifier une personne (avec son nom et son prénom) en fonction de son adresse mail possédant un pseudonyme. J'ai testé la même chose avec une autre adresse mail et même résultat, je n'ai pas pu identifier la personne. Pour ce qui est des Tags IPQS, "Suspect" indique que le serveur mail n'est pas capable de vérifier si l'adresse mail est bien valide. Pour ce qui est de "Frequent Complainer", cela indique que cette adresse mail est souvent désabonnée de listes marketing (newsletters, etc...) ou reporte souvent des mails comme spams.
+Ceci afin de voir s'il était possible d'identifier une personne (avec son nom et son prénom) en fonction de son adresse mail possédant un pseudonyme. J'ai testé la même chose avec une autre adresse mail et même résultat, je n'ai pas pu identifier la personne. Pour ce qui est des Tags IPQS, "Suspect" indique que le serveur mail n'est pas capable de vérifier si l'adresse mail est bien valide. "Frequent Complainer", quant à lui, indique que cette adresse mail est souvent désabonnée de listes marketing (newsletters, etc...) ou reporte souvent des mails comme spams.
 
 
 
@@ -290,4 +290,4 @@ J'ai également essayé de lancer une recherche sur mon adresse mail de l'école
 
 ![image-20220312164856561](figures/image-20220312164856561.png)
 
-On peut voir que l'on obtient différents résultats où mon prénom (ou nom) apparaît, notamment des personnes liées à leurs entreprises respectives ainsi que leurs adresses, des documents JSON venant de l'OCCRP (*Organized Crime and Corruption Reporting Project*) qui, selon Wikipédia est "*un regroupement de journalistes d'enquête et de centres d'enquête fondé en 2006. Les membres de l'OCCRP enquêtent sur différentes zones géographiques et sur différentes thématiques*". On obtient également des documents accessibles publiquement venant d'un cloud.
+Je n'ai obtenu aucune information venant de FullContact (première transformation effectuée sur mon adresse mail me retournant juste une sorte d'entité Person propre à FullContact). J'ai donc ensuite relancé une recherche sur cette entité Person mais cette fois avec Social Links CE. On peut voir que l'on obtient différents résultats où mon prénom (ou nom) apparaît, notamment des personnes liées à leurs entreprises respectives ainsi que leurs adresses, des documents JSON venant de l'OCCRP (*Organized Crime and Corruption Reporting Project*) qui, selon Wikipédia est "*un regroupement de journalistes d'enquête et de centres d'enquête fondé en 2006. Les membres de l'OCCRP enquêtent sur différentes zones géographiques et sur différentes thématiques*". On obtient également des documents accessibles publiquement venant d'un cloud. Aucune de ces informations semblent me concerner.
