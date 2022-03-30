@@ -161,6 +161,8 @@ Domaine recherché : heig-vd.ch
 
 ![Screenshot_2022-03-30_07-52-33](https://user-images.githubusercontent.com/79631500/160897485-1f212f08-4efb-496d-9d67-267933976989.png)
 
+On peut y voir un grand nombre d'informations trouvé par Maltego.  
+
 ### transformation sur une entité liée au domaine
 
 ![Screenshot_2022-03-30_07-54-05](https://user-images.githubusercontent.com/79631500/160897613-d2cd9c15-4282-4ba2-a68b-f219bde70e05.png)
@@ -169,7 +171,7 @@ J'ai séléctionné (au hasard) Ludovic Piquerez pour approfondir les recherches
 
 ![Screenshot_2022-03-30_07-56-46](https://user-images.githubusercontent.com/79631500/160887681-c7f6663c-b64c-4e9b-bef8-1349f859f588.png)
 
-On y retrouve un grand nombre de numéros de téléphone et d'adresses éléctroniques qui n'ont pas vraiment l'air d'être liées à l'entité. En revanche, les sites sont pour la plupart correctes.  
+On y retrouve un grand nombre de numéros de téléphone et d'adresses éléctroniques qui n'ont pas vraiment l'air d'être liés à l'entité. En revanche, les sites sont pour la plupart correctes.  
 
 ## Recherche par entité
 
