@@ -1,5 +1,7 @@
 # Labo découverte Maltego
 
+> Auteur: Noémie Plancherel
+
 ## Introduction
 
 Maltego est un outil de data mining capable d'explorer une variété de ressources de données open-source et utilise ces données pour créer des graphs permettant d'analyser des éventuelles connexions identifiées entre ces différentes ressources.
@@ -167,9 +169,11 @@ Finalement, nous pouvons aussi obtenir des sites web liés au nom de domaine, co
 
 ![1_2](images/1_2.png)
 
-J'ai effectué la même recherche avec l'entreprise chez qui j'ai réalisé mon projet de AST.
+J'ai effectué la même recherche avec l'entreprise chez qui j'ai réalisé mon projet de AST qui possède le nom de domaine `lerepuis.ch`.
 
 ![](images/1_3.png)
+
+Nous constatons que, comme pour *heig-vd.ch*, la recherche a retourné plusieurs noms de sous-domaines différents (`extranet.lerepuis.ch`, `mail.lerepuis.ch`), des adresses e-mails ainsi qu'un NS Record `ns32.infomaniak.com` qui est directement lié à Infomaniak.
 
 > Question 2 - Reconnaissance réseau sur une personne
 
@@ -195,7 +199,7 @@ J'ai fait une première recherche d'adresse e-mail avec mon adresse personnelle 
 
 ![](images/4_0.png)
 
-J'ai effectué une seconde recherche avec l'e-mail de mon client du cours AST. On constate que l'e-mail est correctement lié au nom de domaine *lerepuis.ch*, cependant on voit que l'e-mail a été leaked suite à une attaque d'un site où un attaquant a pu récolter des adresses e-mails d'utilisateurs. 
+J'ai effectué une seconde recherche avec l'e-mail de mon client du cours AST. On constate que l'e-mail est correctement lié au nom de domaine *lerepuis.ch*, cependant on voit que l'e-mail a été leaked suite à une attaque d'un site où un attaquant a pu récolter des adresses e-mails d'utilisateurs. De plus, cette adresse e-mail aurait été utilisée pour des comptes *YouTube*, *Telegram* ou encore *Twitter*.
 
 ![](images/4_1.png)
 
@@ -203,7 +207,7 @@ J'ai effectué une seconde recherche avec l'e-mail de mon client du cours AST. O
 
 > VirusTotal
 
-Ce transforms va permettre d'analyser des URLs ainsi que des fichiers pour vérifier s'il existe des malwares. Pour cette partie, j'ai décidé de continuer de faire des recherches avec mon client du cours de AST; j'ai ainsi fait une recherche via le nom de domaine *lerepuis.ch*. 
+Ce transform va permettre d'analyser des URLs ainsi que des fichiers pour vérifier s'il existe des malwares. Pour cette partie, j'ai décidé de continuer de faire des recherches avec mon client du cours de AST; j'ai ainsi fait une recherche via le nom de domaine *lerepuis.ch*. 
 
 Nous voyons ci-dessous qu'en comparaison avec les recherches précédentes, des éléments supplémentaires sont apparus, comme un certificat *Sectigo RSA Domain Validation Secure Server CA* pour les sous-domaines **.webexpert.ch*.
 
