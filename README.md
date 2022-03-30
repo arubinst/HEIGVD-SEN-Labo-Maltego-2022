@@ -150,3 +150,49 @@ Le rendu se fait à travers un "pull request".
 # Echéance
 
 Le 14 avril 2022 à 10h25
+
+# Rendu
+
+## Recherche par domaine
+
+Domaine recherché : heig-vd.ch
+
+![index](https://user-images.githubusercontent.com/79631500/160887183-a33ef582-adf6-4346-9aec-70dbd3281bb2.jpg)
+0887004-06c0ac91-5d67-47c6-9fd3-f79e6b2d7b9f.png)
+
+![Screenshot_2022-03-30_07-52-33](https://user-images.githubusercontent.com/79631500/16
+
+
+### transformation sur une entité liée au domaine
+
+![Screenshot_2022-03-30_07-54-05](https://user-images.githubusercontent.com/7963
+
+J'ai séléctionné (au hasard) Ludovique Piquerez pour approfondir les recherches.
+
+![Screenshot_2022-03-30_07-56-46](https://user-images.githubusercontent.com/79631500/160887681-c7f6663c-b64c-4e9b-bef8-1349f859f588.png)
+1500/160887636-75371790-1c9a-45a2-ae24-40cfcee1311b.png)
+
+On y retrouve un grand nombre de numéros de téléphone et d'adresses éléctroniques qui n'ont pas vraiment l'air d'être liées à l'entité. En revanche, les sites sont pour la plupart correctes.  
+
+## Recherche par entité
+
+Recherche de moi-même afin de pouvoir vérifier les résultats obtenus.
+
+![Screenshot_2022-03-30_08-22-31](https://user-images.githubusercontent.com/79631500/160892743-fce8b8df-b58c-4343-bd16-5069a66a2064.png)
+
+Comme précedemment, les nombreux numéros de téléphones et adresses éléctroniques trouvés sont tous faux. Certains sites sont effectivement en lien mais plusieurs ne le sont pas. Il semblerait qu'une autre personne avec le meme nom et prénom soit pris en compte dans les résultats (les comptes Facebook).
+
+## Recherche par adresse éléctronique
+
+![Screenshot_2022-03-30_08-27-07](https://user-images.githubusercontent.com/79631500/160893686-12c4c297-0b01-4666-9b99-f91d14176a8a.png)
+
+En utilisant mon adresse éléctronique de l'école, Maltego retrouve le domaine de la heig-vd (pas trop dur à prioris).
+
+
+## Autre transformation
+
+La transformation Have I Been Pwnd montre les différents leaks sur une de mes vieille adresse éléctronique.
+
+![Screenshot_2022-03-30_09-18-16](https://user-images.githubusercontent.com/79631500/160896735-cf249e6e-dc86-4a15-a58e-c2cdddb55c02.png)
+
+Les autres transformations n'ont rien montré de spécial.
