@@ -1,5 +1,7 @@
 # Labo découverte Maltego
 
+Auteur : Gwendoline Dossegger
+
 ## Introduction
 
 Maltego est un outil de data mining capable d'explorer une variété de ressources de données open-source et utilise ces données pour créer des graphs permettant d'analyser des éventuelles connexions identifiées entre ces différentes ressources.
@@ -62,9 +64,7 @@ Dès que **Run Transform** est sélectionné, Maltego commence son travail en tr
 
 ![HEIG scan](images/heig_scan.png)
 
-Vous pouvez voir dans les images ci-dessous que toutes sortes d'informations apparaissent, y compris les serveurs DNS, intranet, les sites qui peuvent avoir une certaine relation avec la cible, les emails associés, les serveurs de messagerie. Qu'est-ce que vous trouvez pour votre cas ? Faites des captures d'écran pour votre rendu et ajoutez vos commentaires !
-
-![Machines, names, emails](images/machines_names_emails.png)
+Vous pouvez voir dans les images ci-dessous que toutes sortes d'informations apparaissent, y compris les serveurs DNS, intranet, les sites qui peuvent avoir une certaine relation avec la cible, les emails associés, les serveurs de messagerie. Qu'est-ce que vous trouvez pour votre cas ? Faites des captures d'écran pour votre rendu et ajoutez vos commentaires !<img src="images/machines_names_emails.png" alt="Machines, names, emails" style="zoom:67%;" />
 
 ![Servers](images/servers.png)
 
@@ -146,6 +146,160 @@ Utilisez quelques résultats retrouvés lors de vos recherches précédentes pou
 Captures d'écran et commentaires en format PDF ou directement sur le README.md
 
 Le rendu se fait à travers un "pull request". 
+
+
+
+-----
+
+# Réalisation
+
+### Reconnaissance de réseau
+
+Le domain `ehnv.ch` a été choisi comme cible. On peut constater que Maltego arrive a récupéré un bon nombre d'éléments comme adresses mails, des serveurs de messageries, leur site internet et les archives de celui-ci ainsi que des serveurs DNS.
+
+![](images/q1.png)
+
+Un certains nombres d'adresses emails ont été trouvé, se sont des adresses génériques ainsi que des personnelles. Il y a aussi des numéros de téléphones qui permettent de joindre différents services de l'eHnv. 
+
+![](images/q1_1email.png)
+
+![](images/q1_tel.png)
+
+
+
+L'eHnv aussi connue sous établissements hospitaliers du Nord vaudois fait partie de la FHV (Fédération des hôpitaux vaudois) avec tous les autres hôpitaux du canton de Vaud. Pour tout ce qui concerne les systèmes informatiques des hôpitaux, ils sont régis par la FHVI (entité informatique de la FHV). On constatera donc qu'il y a deux NS Record relié à la fhvi (`ns1.fhvi.ch` et `ns2.fhvi.ch`). Lorsqu'on `run all transforms` dessus, on obtient des informations supplémentaires sur la fhvi.
+
+On retrouve des serveurs DNS, des noms de domaines en relation, une plage IPv4 bloquée (`194.209.198.0 à 194.209.198.255`)pour se NS ainsi que son adresse IP (`194.209.198.72`).
+
+![](images/q1_fhvi.png)
+
+J'ai vérifié que l'adresse IP de `ns1.fhvi.ch` soit celle obtenue avec la commande `nslookup` ce qui correspond.
+
+![](images/q1_fhvins.png)
+
+
+
+### Recherche d'une identité
+
+Dans un premier temps, je me suis recherché afin de découvrir les informations publiques disponible sur moi. Seul l'un des liens linkedin, github et le gymnase de burier me concerne. Toutes les autres informations n'ont aucun rapport avec moi.
+
+Cependant, ayant 3 manières différentes d'écrire mon nom de famille le résultat est parfois différents.![](images/q2_gd.png)
+
+Pour continuer avec l'eHnv, j'ai pris son directeur général Jean-François Cardis (selon leur site internet).
+
+On peut constater que son adresse email professionnelle a été trouvée, son compte linkedin, une ancienne présentation réalisée en 2013 (départ de son poste Directeur de soins) ainsi que des articles où il a été cité / participé (24heures, ...).
+
+Son adresse mail est une cible idéale pour du fishing visé. La récupération potentielle de ses identifiants permettrait à l'attaquant d'avoir accès à un compte de l'un des plus hauts statuts hiérarchique dans l'entreprise. 
+
+![](images/q2_ehnv.png)
+
+
+
+### Recherche d'une adresse email
+
+J'ai recherché mon adresse email de l'école. Maltego récupère les informations ci-dessous. Il détecte correctement que l'adresse email est valide et existe ainsi que mon identité et le domaine `heig-vd.ch`. Il récupère aussi le niveau de `Deliverability` qui est à `high` (score de fraude de l'adresse). 
+
+![](images/q3_gd.png)
+
+
+
+### Installation et utilisation de nouvelles transformations
+
+> VirusTotal
+
+VirusTotal permet de vérifier si des URLs et des fichiers sont vulnérables à des malwares selon leur hash. Dans notre cas, j'ai continué avec l'eHnv et plus précisément l'URL `ehnv.ch`. 
+
+On remarque que ce transforms permet d'obtenir plus d'informations que précédemment comme par exemple : les certificats SSL pour le domaine.
+
+De plus, certains résultats possèdent un "rond" de couleur indiquant si l'élément est vulnérable :
+
+- Rond vert (harmless): aucune menace n'a été trouvée
+- Rond jaune (undetected) : un ou plusieurs fournisseurs ont détectés l'élément de potentiellenent malveillant
+- Rond rouge (malicious): élément malveillant
+- Rond noir (undetected) : rien n'est détecté par un fournisseur
+
+![](images/q4_virusTotal.png)
+
+
+
+On a analysé les informations qu'indique VirusTotal pour l'URL `www.ehnv.ch`. On constate qu'aucun partenaire n'a détecté un malware et est donc indiqué comme secure.
+
+![](images/q4_vtt.png)
+
+
+
+On remarque que seul un élément, `patient-qua.ehnv.ch`, semble potentiellement vulnérable et donc `Quttera` a des suspicions. 
+
+![](images/q4_tt2.png)
+
+
+
+> Shodan Transform
+
+En continuant avec le même nom de domaine, il a été possible de récupérer une adresse IP qui correspond à l'hébergeur Web de l'établissement nord Vaudois. Avec cette adresse IP `185.31.40.158`, j'ai re effectué une recherche avec Shodan. On obtient alors les informations suivants :
+
+- Entreprise : `ALWAYSDATA SARL` localisée à `Paris - FR` 
+- ISP - Fournisseur d'accès internet : `ALWAYSDATA SARL`
+- Les ports ouverts : 80 (HTTP), 21/22 (FTP), 25 (SMTP), ... se sont des ports "basiques" pour un hébergeur Web. 
+
+![](images/q4_shodan.png)
+
+![](images/q4_shodan_2.png)
+
+
+
+> PassiveTotal
+
+À l'aide de PassiveTotal, il est possible de voir les sous-domaines en relation avec `ehnv.ch`. On retrouve par exemple `mail.ehnv.ch`, `ucmobile.ehnv.ch` ou encore `patient.ehnv.ch`.  
+
+![](images/q4_passive.png)
+
+D'autres informations comme les serveurs WHOIS sont correctement détecté : `ns1.fv.ch` et `ns2.fhvi.ch`
+
+![](images/q4_whois.png)
+
+
+
+### Et maintenant 
+
+Récapitulatifs des outils Transforms installés : 
+
+| Transforms            | Description                                                  |
+| --------------------- | ------------------------------------------------------------ |
+| Have I Been Pwned?    | Indique si des données comme l'email, le mot de passe ou le numéro de téléphone on été leaked |
+| Farsight DNSB         | Informations selon une base de données DNS                   |
+| FullContact           | Récupère un ensemble de données (email, Twitter, domaines, identité, numéro de téléphone, ...) |
+| VirusTotal Public API | Analyse les fichiers et les URLs pour détecter des vulnérabilités à des malwares |
+| Shodan                | Récupère des informations sur des DNS, URL, IP, ...          |
+| PassiveTotal API      | Recherche des enregistrements WHOIS, des menaces, des résolutions IP, DNS, et certificats SSL, ... |
+| Social Links CE       | Récupère des informations sur les réseaux sociaux à partir d'un email |
+
+
+
+> Have I Been Pwned ?
+
+Pour ce transform, je l'ai d'abord appliqué à mon adresse de l'école. Et il est possible de voir qu'il n'a fuité sur aucun site. J'ai aussi lancé Social Links CE sur mon adresse email mais les documents cloud affiché ne me concerne pas.
+
+| ![](images/q5_gd.png) | ![](images/q5_social.png) |
+| --------------------- | ------------------------- |
+
+
+
+J'ai ensuite effectué le même transform, mais cette fois-ci, pour le directeur de l'ehnv. On constate que son adresse mail aurait été leak autant linkedin que sur covve.com. Puis, j'ai utilisé le transform Social Links sur son adresse mais cette fois-ci aucune information n'a été trouvé. 
+
+![](images/q5_jf.png)
+
+
+
+J'ai appliqué ensuite FullContact à cette adresse mail. Étant une adresse d'entreprise, on obtient pas de résultat que l'on ne connaissait pas. 
+
+![](images/q5_f.png)
+
+
+
+Lors de l'exécution des transforms, je suis partie à chaque fois qu'un élément "vierge" car plus on ajoute de transforme plus de données sont affichées et les graphs grandissent très vite. Ils deviennent un peu "indigeste" pour les parcourir et les prendre en capture.
+
+
 
 # Echéance
 
