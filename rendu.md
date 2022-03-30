@@ -69,7 +69,7 @@ N'a pas pu être testé dû à des erreurs API.
 
 ## Passive Total
 
-On obtient peu de nouvelles informations intéressantes. Malgré mes recherches, je n'ai pas réussi à savoir ce que le suspicious signifie.
+On obtient peu de nouvelles informations intéressantes. Malgré mes recherches, je n'ai pas réussi à savoir ce que le suspicious signifie. On y trouve des domaines différents qui n'ont pas l'air d'avoir de lien direct avec le domaine recherché.
 
 ![img](https://cdn.discordapp.com/attachments/689861744025272414/956492864261615656/unknown.png)
 
