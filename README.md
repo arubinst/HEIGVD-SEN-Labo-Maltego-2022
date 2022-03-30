@@ -46,9 +46,9 @@ Nous pouvons commencer à travailler utilisant la config de base. La transformat
 
 ![](images/reseau-heig1.png)
 
-![2022-03-03 10_52_56-Kali-Linux-2021.3-vbox-amd64 [En fonction] - Oracle VM VirtualBox](images/reseau-heig2.png)
+![](images/reseau-heig2.png)
 
-![2022-03-03 10_55_06-Kali-Linux-2021.3-vbox-amd64 [En fonction] - Oracle VM VirtualBox](images/bastian_gardel.png)
+![](images/bastian_gardel.png)
 
 
 
@@ -56,7 +56,7 @@ Nous pouvons commencer à travailler utilisant la config de base. La transformat
 
 Ci-dessous ce trouve les résultats d'une recherche sur Maude Issolah. Les adresses emails ainsi que les numéros de téléphone ne sont pas liée à elle, mais il y a quelques résultats web intéressant.  
 
-![2022-03-03 11_00_44-Kali-Linux-2021.3-vbox-amd64 [En fonction] - Oracle VM VirtualBox](images/Issolah_Maude.png)
+![](images/Issolah_Maude.png)
 
 Le liens github retrouve un projet GEN que Maude avait fait. Swisslinux est un forum qu'elle as utilisé et whyopencomputing un pdf (ci-dessous) qu'elle à fait en 2018.
 
@@ -70,11 +70,11 @@ Pour les résultats sur moi même, les adresses emails et les numéros de télé
 
 
 
-![2022-03-03 11_17_40-Kali-Linux-2021.3-vbox-amd64 [En fonction] - Oracle VM VirtualBox](images/matthieu_email.png)
+![](images/matthieu_email.png)
 
-![2022-03-03 11_17_56-Kali-Linux-2021.3-vbox-amd64 [En fonction] - Oracle VM VirtualBox](images/justin_email.png)
+![](images/justin_email.png)
 
-![2022-03-03 11_21_49-Kali-Linux-2021.3-vbox-amd64 [En fonction] - Oracle VM VirtualBox](images/matthieu_email_heig.png)
+![](images/matthieu_email_heig.png)
 
 
 ## Installation et utilisation de nouvelles transformations
@@ -93,13 +93,13 @@ Procédez maintenant à relancer les recherches que vous avez déjà effectuées
 
 
 
-![2022-03-13 19_25_19-Kali-Linux-2021.3-vbox-amd64 [En fonction] - Oracle VM VirtualBox](images/VirusTotal.png)
+![](images/VirusTotal.png)
 
 
 
-![2022-03-13 19_24_25-Kali-Linux-2021.3-vbox-amd64 [En fonction] - Oracle VM VirtualBox](images/Shodan.png)
+![](images/Shodan.png)
 
-![2022-03-13 19_23_47-Kali-Linux-2021.3-vbox-amd64 [En fonction] - Oracle VM VirtualBox](images/passive_total.png)
+![](images/passive_total.png)
 
 # Livrable
 
