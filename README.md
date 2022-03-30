@@ -181,7 +181,7 @@ J'ai vérifié que l'adresse IP de `ns1.fhvi.ch` soit celle obtenue avec la comm
 
 ### Recherche d'une identité
 
-Dans un premier temps, je me suis recherché afin de découvrir les informations publiques disponible sur moi. Seul l'un des liens linkedin, github et le gymnase de burier me conserne. Toutes les autres informations n'ont aucun rapport avec moi.
+Dans un premier temps, je me suis recherché afin de découvrir les informations publiques disponible sur moi. Seul l'un des liens linkedin, github et le gymnase de burier me concerne. Toutes les autres informations n'ont aucun rapport avec moi.
 
 Cependant, ayant 3 manières différentes d'écrire mon nom de famille le résultat est parfois différents.![](images/q2_gd.png)
 
