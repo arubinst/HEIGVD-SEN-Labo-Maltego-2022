@@ -68,6 +68,19 @@ Vous pouvez voir dans les images ci-dessous que toutes sortes d'informations app
 
 ![Servers](images/servers.png)
 
+>   Vue globale de mes résultats sur heig-vd.ch:
+>
+>
+>   ![image-20220303110816549](images/image-20220303110816549.png)
+>
+>   La hiérarchie semble différente de la capture d'écran, notamment pour les DNS. Mais je pense que c'est parce qu'ils sont regroupés dans la case "25 DNS Name".
+>
+>   Après avoir relancé plusieurs fois le scan sur le domaine heig-vd.ch, des résultats supplémentaires sont apparus:
+>
+>   ![image-20220303111651159](images/image-20220303111651159.png)
+
+
+
 On peut utiliser ces connexions pour en faire des nouvelles encore plus détaillées. Par exemple, des noms associés avec des emails et même des numéros de téléphone (les numéros de téléphone sont difficiles à obtenir en Europe. La recherche pour les USA fonctionne correctement).
 
 ![People](images/people.png)
@@ -75,6 +88,12 @@ On peut utiliser ces connexions pour en faire des nouvelles encore plus détaill
 Regardons de plus près une personne qui apparaît comme étant connectée au domaine heig-vd.ch. Il s'agit de "Bastian Gardel". Je fais clique-droit sur l'icône de Bastien et **run All Transforms**. De votre côté, sélectionnez une identité trouvée pour votre domaine et exécutez vos transformations. N'oubliez pas de faire une capture et commenter. 
 
 ![Transforms Gardel](images/transform_gardel.png)
+
+>   J'ai fait la recherche sur Bastien Gardel car je préfère ne pas rechercher d'infos sur quelqu'un que je ne connais pas et qui n'est pas au courant de ce labo. Voilà les résultats que j'ai trouvés:
+>
+>   ![image-20220303113638085](images/image-20220303113638085.png)
+>
+>   On peut voir beaucoup d'informations sur des comptes tels que les réseaux sociaux, adresses email et numéros de téléphone
 
 Lorsque les transformations seront terminées, nous aurons un graphique supplémentaire de quelques adresses email associées à Bastien Gardel. On y trouve aussi une clé PGP qui lui appartient, peut-être. J'ai vérifié avec Bastien et les adresses sont en effet des adresses email qu'il utilise ou il a utilisées. Dans certains cas, les résultats peuvent être assez étranges.
 
@@ -102,6 +121,16 @@ Dans mon cas, je trouve mon adresse email de la HEIG-VD et l'une de mes adresses
 
 Faites quelques recherches, avec des noms que vous connaissez (vous-même y-compris). Est-ce que vous arrivez à trouver des adresses email associées ? N'oubliez pas vos captures et commentaires.
 
+
+
+>   Ma première recherche sur ma "personne" n'est pas très convaincante :
+>
+>   ![image-20220303114456521](images/image-20220303114456521.png)
+>
+>   Aucune des informations ci-dessus ne me correspond, à part github, qui est effectivement mon utilisateur public.
+>
+>   Après avoir relancé plusieurs fois le scan beaucoup d'informations sont apparues, mais qui n'avaient toujours aucun lien avec moi-même.  
+
 ## Recherche d'une adresse email
 
 Si vous n'avez pas le nom d'une personne, mais une adresse email, vous pouvez aussi commencer votre recherche directement par l'adresse en question. Dans ce cas là, le résultat de la recherche pourrait vous trouver l'identité associée à cette adresse ainsi que d'autres détails comme, par exemple, une organisation, un numéro de téléphone, etc.
@@ -111,6 +140,10 @@ Pour chercher une adresse email, il suffit d'utiliser l'entité **Email Address*
 ![Email search](images/email_search.png)
 
 Réalisez des recherches avec quelques adresses que vous connaissez, de préférence liées à une organisation. Est-ce que ça vous permet de retrouver des liens intéressants avec l'organisation ? Qu'avez-vous retrouvé en plus ? Accompagnez vos réponses avec des captures d'écran et commentaires.
+
+>   J'ai rententé la recherche sur moi-même. À nouveau, aucune information pertinante n'a été trouvée:
+>
+>   ![image-20220303115636882](images/image-20220303115636882.png)
 
 
 ## Installation et utilisation de nouvelles transformations
@@ -126,6 +159,30 @@ PassiveTotal est une plateforme de recherche de menaces. Le but est de contribue
 Vous pouvez chercher vous même des informations sur d'autres transformations disponibles.
 
 Procédez maintenant à relancer les recherches que vous avez déjà effectuées, mais utilisant exclusivement les transformations que vous venez d'installer. Est-ce que vous arrivez à trouver d'autres informations ? N'oubliez pas votre capture et commentaires.
+
+>   Je n'ai pas trouvé de nouvelles informations avec mes adresses mail avec PassiveTotal (seule nouvelle transfo disponible pour les entités mail). 
+>
+>   J'ai donc relancé un scan sur heig-vd.ch: voici les résultats:
+
+
+
+>   PassiveTotal:
+>
+>   ![image-20220310113219135](images/image-20220310113219135.png)
+
+
+
+>   Shodan (pas très efficace pour ce domaine):
+>
+>   ![image-20220310113438043](images/image-20220310113438043.png)
+
+
+
+>   VirusTotal:
+>
+>   ![image-20220310114831848](images/image-20220310114831848.png) 
+>
+>   Cette dernière analyse comporte des éléments très intéressants.
 
 ## Et maintenant ?
 
