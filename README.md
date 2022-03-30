@@ -68,6 +68,16 @@ Vous pouvez voir dans les images ci-dessous que toutes sortes d'informations app
 
 ![Servers](images/servers.png)
 
+> Le domaine utilisé est : sib.swiss. Ce domaine appartient à l'entreprise sur laquelle j'ai effectué un pentest lors du cours d'AST.
+>
+> Sur la capture ci-dessous, les différentes types d'informations trouvés sont affichés :
+>
+> ![mt_1](images/mt_1.png)
+>
+> On peut voir ici quelques documents, domaines, adresses mails, numéro de téléphones et plus encore trouvés par Maltego : 
+>
+> ![mt_2](images/mt_2.png)
+
 On peut utiliser ces connexions pour en faire des nouvelles encore plus détaillées. Par exemple, des noms associés avec des emails et même des numéros de téléphone (les numéros de téléphone sont difficiles à obtenir en Europe. La recherche pour les USA fonctionne correctement).
 
 ![People](images/people.png)
@@ -75,6 +85,10 @@ On peut utiliser ces connexions pour en faire des nouvelles encore plus détaill
 Regardons de plus près une personne qui apparaît comme étant connectée au domaine heig-vd.ch. Il s'agit de "Bastian Gardel". Je fais clique-droit sur l'icône de Bastien et **run All Transforms**. De votre côté, sélectionnez une identité trouvée pour votre domaine et exécutez vos transformations. N'oubliez pas de faire une capture et commenter. 
 
 ![Transforms Gardel](images/transform_gardel.png)
+
+> Après avoir effectué les transformations sur une personne, on obtient des informations en plus. Par exemple des adresses mails appartenant à la personne, des numéros de téléphone ou encore des comptes publiques comme GitHub, YouTube ou encore LinkedIn :
+>
+> ![mt_3](images/mt_3.png)
 
 Lorsque les transformations seront terminées, nous aurons un graphique supplémentaire de quelques adresses email associées à Bastien Gardel. On y trouve aussi une clé PGP qui lui appartient, peut-être. J'ai vérifié avec Bastien et les adresses sont en effet des adresses email qu'il utilise ou il a utilisées. Dans certains cas, les résultats peuvent être assez étranges.
 
@@ -102,6 +116,18 @@ Dans mon cas, je trouve mon adresse email de la HEIG-VD et l'une de mes adresses
 
 Faites quelques recherches, avec des noms que vous connaissez (vous-même y-compris). Est-ce que vous arrivez à trouver des adresses email associées ? N'oubliez pas vos captures et commentaires.
 
+> En effectuant les transformations sur mon nom complet, plusieurs numéros de téléphone et adresses mails ont été trouvées, mais rien de tout cela ne m'appartient : 
+>
+> ![mt_4](images/mt_4.png)
+>
+> Si la recherche est effectuée sans mon deuxième prénom, certaines informations trouvées sont bien liées à moi : mes deux comptes GitHub ainsi que des sites contenants des résultats de course à pied auxquelles j'ai participé il y a bien longtemps.
+>
+> ![mt_5](images/mt_5.png)
+>
+> J'ai effectué les transformations avec le nom et prénom d'un ami et j'ai pu trouver son adresse mail et certains de ses comptes mais plusieurs des informations étaient liées à d'autre personne ayant un nom pareil : 
+>
+> ![mt_6](images/mt_6.png)
+
 ## Recherche d'une adresse email
 
 Si vous n'avez pas le nom d'une personne, mais une adresse email, vous pouvez aussi commencer votre recherche directement par l'adresse en question. Dans ce cas là, le résultat de la recherche pourrait vous trouver l'identité associée à cette adresse ainsi que d'autres détails comme, par exemple, une organisation, un numéro de téléphone, etc.
@@ -112,6 +138,34 @@ Pour chercher une adresse email, il suffit d'utiliser l'entité **Email Address*
 
 Réalisez des recherches avec quelques adresses que vous connaissez, de préférence liées à une organisation. Est-ce que ça vous permet de retrouver des liens intéressants avec l'organisation ? Qu'avez-vous retrouvé en plus ? Accompagnez vos réponses avec des captures d'écran et commentaires.
 
+> En recherchant mon adresse email de l'école, les informations suivantes sont trouvées : 
+>
+> ![mt_7](images/mt_7.png)
+>
+> Tout d'abord, il est confirmé que l'adresse existe bien, mon identité est également renseignée. Le domaine a aussi été trouvé.
+>
+> La Deliverability est un tag IPQS. Ces tags sont utilisés pour donner évaluer la sûreté d'une adresse mail. Ici, ce tag signifie que le serveur mail répond très rapidement.
+>
+> En utilisant une adresse privée, un peu plus d'informations sont affichées : 
+>
+> ![mt_8](images/mt_8.png)
+>
+> Comme précédemment, le domaine et l'identité sont trouvés. Ici, 3 tags IPQS sont également fournit. `Common` signifie que l'adresse vient d'un domaine fortement utilisé (ici Google). `Suspect` signifie que Maltego n'a pas pu confirmer que l'adresse mail existe réellement et finalement `Deliverability` qui indique un temps de réponse normal du serveur. 
+>
+> En utilisant une fausse adresse, il est possible de voir que l'identité et le domaine sont simplement repris de l'adresse : 
+>
+> ![mt_9](images/mt_9.png)
+>
+> Les différents sites ne contiennent pas d'informations utiles. Ce que nous intéresse ici, c'est le tag IPQS `Dns Valid`. En lisant la description de ce tag, il est indiqué que le dns utilisé et non valide et donc l'adresse elle-même est certainement invalide :
+>
+> ![mt_10](images/mt_10.png)
+>
+> En analysant l'email, il est possible de voir son score de fraude définit par les différents tags IPQS. pour cette adresse, il est de 45
+>
+> ![mt_11](images/mt_11.png)
+>
+> Sur la documentation IPQS (https://docs.microsoft.com/en-us/connectors/ipqsfraudandriskscor/), il est indiqué qu'un score au dessus de 75 est suspect. Ici l'adresse n'existe pas mais cela ne veut pas forcement dire qu'elle est utilisée à des fins frauduleuses, ce qui explique le score relativement bas.
+
 
 ## Installation et utilisation de nouvelles transformations
 
@@ -119,9 +173,37 @@ Pour installer de nouvelles transforms, cliquez sur l'onglet "Transforms" et ens
 
 Commençons par VirusTotal Public API. VirusTotal peut analyser des fichiers et des URLs pour chercher des malwares. Cela permet, par exemple, de trouver des fichiers/URLs compromis chez une cible. Vous aurez besoin de [créer un compte]( https://www.virustotal.com/gui/join-us) pour avoir accès à une clé vous permettant d'utiliser l'API et donc, la transformation correspondante pour Maltego. Un lien pour trouver votre clé vous sera envoyé dans le même email utilisé pour l'activation du compte.
 
+> ![mt_14](images/mt_14.png)
+>
+> VirusTotal révèle de nouvelles informations telles que des certificats, des fichiers de type texte ou pdf ainsi que des mots clé. Les mots clés permettent de se donner une idée sur le centre d'activité correspondant au domaine. SIB étant un projet web pour un institut médical aussi présent dans le milieu scolaire, on peut voir que ces mots clés s'en rapprochent grandement.
+>
+> Les fichiers ainsi que les sous-domaines sont également analysés par VirusTotal. La petite puce verte indique que le composant analysé est sans danger, alors que la puce grise indique qu'aucune menace n'a été détectée. 
+
 On va maintenant installer la Shodan Tranform. Shodan.io est un "analyseur d'Internet". Il donne des informations intéressantes (aussi de point de vue de la sécurité) sur des dispositifs connectés, des serveurs et services, etc. Pour comprendre ce que Shodan vous apporte à travers le Transform Maltego et comment ça marche, [vous pouvez lire cet article](http://maltego.blogspot.com/2016/04/abracadabra-its-shodan-time.html). Vous aurez besoin de [créer un compte](https://account.shodan.io/register) pour utiliser la transformation.
 
+> En lançant Shodan sur le domaine `sib.swiss`, de nombreuses nouvelles informations sont trouvées :
+>
+> ![mt_16](images/mt_16.png)
+>
+> Une adresse IP est d'abord trouvée qui correspond certainement à l'adresse du serveur hébergeant ce domaine. En effectuant des recherches dessus il est possible de trouver des ports ouverts ou une bannière de requête par exemple.
+>
+> ![mt_17](images/mt_17.png)
+>
+> Il est également possible de trouver où est la location physique de cette adresse ou encore son ISP : 
+>
+> ![mt_18](images/mt_18.png)
+
 PassiveTotal est une plateforme de recherche de menaces. Le but est de contribuer à analyser la sécurité de systèmes pour prévenir les attaques avant qu'elles n 'arrivent. Pour activer cette transformation, il faut commencer par la [création d'un compte](https://community.riskiq.com/registration). Vous accédez ensuite à votre espace utilisateur (account) et révélez les valeurs cachées dans API ACCESS. Attention, la transformation vous demande un user et une clé (key). Ces deux valeurs correspondent respectivement à votre adresse email et à la valeur identifiée comme "secret" sur votre compte riskiq. Pour plus d'information sur cette transformation, ce référer à [cet article](https://blog.passivetotal.org/brand-new-maltego-transforms-and-code/).
+
+> ![mt_12](images/mt_12.png)
+>
+> Ici, on peut voir divers sous-domaines de `sib.swiss`.
+>
+> Il est également possible de voir le résultat d'une recherche effectuée avec `whois`.
+>
+> ![mt_13](images/mt_13.png)
+>
+> On peut voir que les résultats obtenu par Maltego et ceux obtenus par la ligne de commande correspondent.
 
 Vous pouvez chercher vous même des informations sur d'autres transformations disponibles.
 
@@ -133,11 +215,32 @@ Est-ce qu'il vous restent encore des transforms gratuites à installer ? Vous po
 
 Faites une petite recherche sur Internet pour comprendre le type d'information que chaque transformation vous apporte (ce n'est pas toujours très clair...). Remplissez un petit tableau avec ces informations. Ça peut devenir utile quand vous avez beaucoup de transformations installées.
 
+| Transform          | Utilité                                                      |
+| ------------------ | ------------------------------------------------------------ |
+| Have I Been Pwned? | Vérifie si un mail, mot de passe ou numéro de téléphone a été rendu publique. |
+| dataprovider       | Base de données de domaines (transformation plus disponible) |
+| Farsight DNSDB     | Base de données DNS                                          |
+| FullContact        | Base de données pour mails, numéros de téléphone, personne, compagnie, <br />comptes twitter, domaines et alias. |
+
 Utilisez donc ces nouvelles transformations que vous avez installé.
+
+> ![mt_15](images/mt_15.png)
+>
+> Avec la transform `Have I Been Pwned?`, j'ai pu vérifier que mon adresse mail n'aie pas été dévoilée.
 
 Tous les résultats sur le graph sont utilisables pour lancer des nouvelles recherches. Un clique-droit sur les différentes icônes vous permet de lancer des transformations à partir de cette entité. Vous pouvez lancer des transformations sur des numéros de téléphone, des services, des adresses IP, des coordonnées, des documents, etc.
 
 Utilisez quelques résultats retrouvés lors de vos recherches précédentes pour lancer des transformations sur d'autres entités de types différents à celles que vous avez déjà testé (Person, Domain, email). Est-ce que vous arrivez à trouver quelque chose d'intéressant ? Est-ce que le graph devient difficile à gérer ? Documentez vos activités avec des captures et des commentaires.
+
+> Cela peut arriver après une nouvelle transformation que des liens se forment entre des éléments déjà présent ce qui rajoute de nouvelles flèches et rend le schéma moins lisible 
+>
+> ![mt_19](images/mt_19.png)
+>
+> Certain éléments contiennent également beaucoup d'informations ce qui peut vite surcharger le graphe :
+>
+> ![mt_20](images/mt_20.png)d
+>
+> Ici, c'est le résultat de l'analyse de 3 points différents, cela représente déjà énormément d'informations. Il est de plus en plus difficile de partager les information utiles de celles erronées ou simplement inutilisables. 
 
 [GitHub est aussi une source précieuse de transformations](https://github.com/search?q=maltego+transform) qui ne se trouvent pas dans le Hub. Est-ce que vous avez une idée pour une transformation ? Vous pouvez [les developper vous même](https://docs.maltego.com/support/solutions/articles/15000017605-writing-local-transforms-in-python) aussi en python ! 
 
