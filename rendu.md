@@ -77,6 +77,22 @@ On obtient peu de nouvelles informations intéressantes. Malgré mes recherches,
 
 ## Autres extensions
 
+## Dataprovider
+
+L'extension n'existe plus.
+
+## Wayback machine
+
+Permet d'accéder à des versions précédentes du site web.
+
+## SSL Certificate Transform
+
+Récupère des informations sur les certificats SSL/TLS et détecte des éventuels problèmes (Certificats autosignés, compromis, etc.) 
+
+## Farsight DNSDB
+
+Permet d'obtenir d'information en lien avec les informations DNS ainsi que les noms de domaine, IP et NX.
+
 ## Have I been pwned
 
 Extension pour vérifier si une adresse email fait partie de certaines leaks de mot de passe. On peut voir par exemple que mon adresse de l'école n'est dans aucun leak connu.
