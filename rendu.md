@@ -1,4 +1,4 @@
-# SEN 202
+# SEN 2022
 
 ## Labo 1 - Maltego
 
