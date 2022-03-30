@@ -116,9 +116,13 @@ Sur ces résultats, seules six valeurs sont pertinentes:
 
 
 
-Have I Been Pwned cherche dans des listes pour vérifier si l'email donné a été leaké.
+**Have I Been Pwned** cherche dans des listes pour vérifier si l'email donné a été leaké.
 
-On voit son affichage dans les captures d'emails.
+On voit son affichage dans les captures d'emails ainsi que ci-dessous:
+
+<img src="images/rendu/AIBP.png" style="border:1px solid grey;zoom:80%;" />
+
+On voit qu'une de mes adresses a été trouvée dans une des listes.
 
 
 
