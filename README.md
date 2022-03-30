@@ -214,8 +214,9 @@ On remarque que ce transforms permet d'obtenir plus d'informations que précéde
 De plus, certains résultats possèdent un "rond" de couleur indiquant si l'élément est vulnérable :
 
 - Rond vert (harmless): aucune menace n'a été trouvée
+- Rond jaune (undetected) : un ou plusieurs fournisseurs ont détectés l'élément de potentiellenent malveillant
 - Rond rouge (malicious): élément malveillant
-- Rond noir (undetected) : rien n'est détecté
+- Rond noir (undetected) : rien n'est détecté par un fournisseur
 
 ![](images/q4_virusTotal.png)
 
@@ -239,6 +240,7 @@ En continuant avec le même nom de domaine, il a été possible de récupérer u
 
 - Entreprise : `ALWAYSDATA SARL` localisée à `Paris - FR` 
 - ISP - Fournisseur d'accès internet : `ALWAYSDATA SARL`
+- Les ports ouverts : 80 (HTTP), 21/22 (FTP), 25 (SMTP), ... se sont des ports "basiques" pour un hébergeur Web. 
 
 ![](images/q4_shodan.png)
 
