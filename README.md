@@ -1,5 +1,7 @@
 # Labo découverte Maltego
 
+> Auteur: Noémie Plancherel
+
 ## Introduction
 
 Maltego est un outil de data mining capable d'explorer une variété de ressources de données open-source et utilise ces données pour créer des graphs permettant d'analyser des éventuelles connexions identifiées entre ces différentes ressources.
@@ -150,3 +152,132 @@ Le rendu se fait à travers un "pull request".
 # Echéance
 
 Le 14 avril 2022 à 10h25
+
+# Questions
+
+>  Question 1 - Reconnaissance réseau :
+
+La recherche via le nom de domaine *heig-vd.ch* donne le résultat ci-dessous. Nous pouvons constater que Maltego a trouvé beaucoup d'informations différentes liées au nom de domaine.
+
+![](images/1_0.png)
+
+Notamment, nous avons pu récupérer des personnes ainsi que des numéros de téléphone fixe. En récupérant des noms de personnes, il est possible par la suite de se concentrer sur une seule et de faire une recherche plus approfondie sur cette dernière afin de récupérer des informations personnelles.
+
+![1_1](images/1_1.png)
+
+Finalement, nous pouvons aussi obtenir des sites web liés au nom de domaine, comme par exemple ici *gaps.heig-vd.ch* ou encore le site officiel *heig-vd.ch*.
+
+![1_2](images/1_2.png)
+
+J'ai effectué la même recherche avec l'entreprise chez qui j'ai réalisé mon projet de AST qui possède le nom de domaine `lerepuis.ch`.
+
+![](images/1_3.png)
+
+Nous constatons que, comme pour *heig-vd.ch*, la recherche a retourné plusieurs noms de sous-domaines différents (`extranet.lerepuis.ch`, `mail.lerepuis.ch`), des adresses e-mails ainsi qu'un NS Record `ns32.infomaniak.com` qui est directement lié à Infomaniak.
+
+> Question 2 - Reconnaissance réseau sur une personne
+
+La personne séléctionnée est *Christian Buchs*. Nous remarquons qu'on a pu récupérer plusieurs adresses e-mails différentes dont son adresse e-mail de la heig-vd. À part quelques comptes sur des site comme *LinkedIn* ou *Facebook*, le reste ne sont pas des informations très pertinentes pour la personne recherchée.
+
+![](images/2_0.png)
+
+> Question 3 - Recherche d'identité
+
+J'ai effectué une première recherche avec mon identité; nous pouvons remarquer ci-dessous qu'il n'y a aucune adresse e-mail qui est liée avec moi. Il y a quelques sites qui apparaissent sur lesquels j'apparais ou sur lesquels j'ai un compte, notammant *Facebook* ou *LinkedIn*. Mais comme précédemment, le reste des informations retournées ne sont pas très pertinentes.
+
+![](images/3_1.png)
+
+J'ai effectué la même recherche mais avec *Alexandre Duc*; j'ai pu récupérer deux adresses e-mails qui doivent lui appartenir, *alexandre.duc@heig-vd.ch* et *alexandre.duc@epfl.ch*. Il y a également 3 numéros de téléphones suisses, deux fixes et un téléphone portable.
+
+![](images/3_0.png)
+
+
+
+> Question 4 - Recherche d'une adresse e-mail
+
+J'ai fait une première recherche d'adresse e-mail avec mon adresse personnelle de l'école *noemie.plancherel@heig-vd.ch*. Nous pouvons constater que l'adresse est correctement reliée au nom de domaine *heig-vd.ch* et à ma propre identité *Noemie Plancherel*, ce qui permettrait de faire par la suite une recherche d'identité avec mon nom. De plus, nous voyons que Maltego a pu vérifier que l'e-mail existait réellement.
+
+![](images/4_0.png)
+
+J'ai effectué une seconde recherche avec l'e-mail de mon client du cours AST. On constate que l'e-mail est correctement lié au nom de domaine *lerepuis.ch*, cependant on voit que l'e-mail a été leaked suite à une attaque d'un site où un attaquant a pu récolter des adresses e-mails d'utilisateurs. De plus, cette adresse e-mail aurait été utilisée pour des comptes *YouTube*, *Telegram* ou encore *Twitter*.
+
+![](images/4_1.png)
+
+> Question 5 - Ajout de nouveaux transforms
+
+> VirusTotal
+
+Ce transform va permettre d'analyser des URLs ainsi que des fichiers pour vérifier s'il existe des malwares. Pour cette partie, j'ai décidé de continuer de faire des recherches avec mon client du cours de AST; j'ai ainsi fait une recherche via le nom de domaine *lerepuis.ch*. 
+
+Nous voyons ci-dessous qu'en comparaison avec les recherches précédentes, des éléments supplémentaires sont apparus, comme un certificat *Sectigo RSA Domain Validation Secure Server CA* pour les sous-domaines **.webexpert.ch*.
+
+![](images/5_0.png)
+
+De plus, nous pouvons constater plusieurs type de résultats différents en fonction de l'analyse de virus de VirusTotal:
+
+- Pastille verte: *harmless*, aucun partenaire de VirusTotal n'a détecté de virus
+- Pastille rouge: *malicious*, plusieurs partenaires ont détecté l'élément comme étant malveillant.
+- Pastille noire: *undetected*, aucun partenaire de VirusTotal n'a détecté de virus
+
+Pour chaque élément analysé, chaque partenaire de sécurité vérifie si l'élément pourrait contenir un virus ou pourrait être malveillant. Dans les partenaires, nous pouvons retrouver *Fortinet*, *Avast*, *Acronis*, ...
+
+Ainsi, nous pouvons à chaque fois récupérer un rapport final avec chaque résultat des fournisseurs. Ci-dessous un rapport d'un élément *harmless*:
+
+![](images/5_3.png)
+
+En comparaison avec un fichier `.exe` malveillant:
+
+![](images/5_4.png)
+
+> Shodan Transform
+
+N'ayant aucun résultat retourné avec le nom de domaine *lerepuis.ch*, j'ai décidé d'effectuer cette partie avec *heig-vd.ch*.
+
+Après la première recherche avec Shodan, nous pouvons voir ci-dessous un premier résultat qui semble être une adresse IP liée au nom de domaine *heig-vd.ch*.
+
+![](images/5_1_1.png)
+
+J'ai donc relancé une recherche Shodan avec cette adresse IP et nous pouvons constater:
+
+- 3 noms de domaine sont liées à l'adresse IP `193.134.220.45`: `mas-eddbat.ch`, `mas-mobilite.ch` et `robot15.ch`
+- Semble être localisée à Neuchâtel (à la rue du Seyon pour être exact)
+- Le fournisseur d'accès Internet (ISP) est SWITCH
+- L'IP est liée à l'organisation *Haute Ecole d'Ingenierie*
+
+![](images/5_1_2.png)
+
+> PassiveTotal
+
+En utilisant le transform PassiveTotal, nous pouvons voir quelques noms de sous-domaines différents (par exemple *mail.lerepuis.ch* ou encore *extranet.lerepuis.ch*). Et sinon, les informations retournées sont les résultats d'une recherche `whois`.
+
+![](images/5_2.png)
+
+Ainsi, nous pouvons comparer le résultat en effectuant la même commande en local.
+
+![](images/5_5.png)
+
+Nous pouvons remarquer que les résultats sont similaires, à part pour la date d'enregistrement du nom de domaine, il y a un jour de différence.
+
+> Question 6 - Suite
+
+| Transformation     | Description                                                  |
+| ------------------ | ------------------------------------------------------------ |
+| Have I Been Pwned? | Permet de vérifier si des données (adresse e-mail, numéro de téléphone, mot de passe) ont été leaked lors d'attaques |
+| OpenCorporates     | Permet de faire des requêtes sur une base de données avec plus de 160 millions d'entreprises |
+| Farsight DNSDB     | Permet de faire des requêtes sur une grande base de données DNS |
+| FullContact        | Récupère des données telles que adresses e-mail, compte Twitter, domaines, personnes, numéro de téléphone |
+| Social Links CE    | Recherche via plusieurs sites les comptes liés à une adresse e-mail |
+
+J'ai testé le transforms Have I Been Pwned ? avec mon adresse personnelle gmail. Nous pouvons voir ci-dessous que mon adresse e-mail a fuité sur le site *123rf.com* lors d'une attaque ciblée.
+
+![](images/6_1.png)
+
+J'ai également effectué une recherche avec Social Links CE avec mon adresse gmail. Cependant, je n'ai trouvé aucun compte lié à mon adresse e-mail mais seulement des documents cloud qui ne sont pas liés à mon adresse e-mail.
+
+![6_2](images/6_2.png)
+
+
+
+Finalement, j'ai testé Have I Been Pwned ? avec mon adresse de l'école, et on peut constater qu'elle n'a pas fuité. 
+
+![6_4](images/6_4.png)
