@@ -42,75 +42,45 @@ Nous pouvons commencer à travailler utilisant la config de base. La transformat
 
 ## Une simple reconnaissance de réseau
 
-En partant d'un nom de domaine, on peut commencer à mapper la structure d'une organisation. C'est assez surprenant la quantité d'information qui peut être disponible à partir de rien d'autre qu'un nom de domaine.
+Ci-dessous se trouve une capture d'écran du résultat d'une reconnaissance du réseau "heig-vd.ch".  On peut y voir des pages web, des domaines plus ou moins pertinent ainsi que des personnes.
 
-Cliquer sur le bouton **new graph** en haut, à gauche pour commencer un nouveau projet vide.
+![](images/reseau-heig1.png)
 
-![New graph](images/new_graph.png)
+![](images/reseau-heig2.png)
 
-Depuis la palette d'entités (**Entity Palette**) à gauche, défilez vers le bas et trouvez l'entité **Domain**. Puis, faites-la glisser dans votre graph vierge. 
+Parmi les personnes identifié par Maltego, il a été choisi d'aller plus loins pour la personne de Bastian Gardel. Nous y trouvons plusieurs adresse email, des numéros de téléphone faux ainsi que des pages web comme Instagram et Facebook ou encore Youtube.
 
-**Double-cliquez** sur l'icon **Domain** et changez le nom au domaine que vous voulez rechercher. Dans mon cas, j'ai choisi *heig-vd.ch*. Vous pouvez utiliser, par exemple, le domaine de l'entreprise que vous avez audité en AST, si vous avez suivi le cours. Sinon, sentez-vous libre de choisir un domaine qui vous paraît intéressant.
+![](images/bastian_gardel.png)
 
-<img src="images/domain_heig.png" width="200">
 
-Un click droit sur l'icône Domain ouvre la fenêtre d'execution de transformations, la **Run Transforms** box. On peut être assez spécifique ici et sélectionner seulement ce qui nous intéresse. Pourtant, nous allons devenir fous et simplement choisir **Run All Transforms** on sélectionnant la petite icône "fast forward" à côté. 
-
-![Run all](images/run_all.png)
-
-Dès que **Run Transform** est sélectionné, Maltego commence son travail en traçant la structure du réseau. **Remarque :** sur le côté gauche de l'interface du graphique, il existe plusieurs options pour visualiser le graphique sous différentes formes.
-
-![HEIG scan](images/heig_scan.png)
-
-Vous pouvez voir dans les images ci-dessous que toutes sortes d'informations apparaissent, y compris les serveurs DNS, intranet, les sites qui peuvent avoir une certaine relation avec la cible, les emails associés, les serveurs de messagerie. Qu'est-ce que vous trouvez pour votre cas ? Faites des captures d'écran pour votre rendu et ajoutez vos commentaires !
-
-![Machines, names, emails](images/machines_names_emails.png)
-
-![Servers](images/servers.png)
-
-On peut utiliser ces connexions pour en faire des nouvelles encore plus détaillées. Par exemple, des noms associés avec des emails et même des numéros de téléphone (les numéros de téléphone sont difficiles à obtenir en Europe. La recherche pour les USA fonctionne correctement).
-
-![People](images/people.png)
-
-Regardons de plus près une personne qui apparaît comme étant connectée au domaine heig-vd.ch. Il s'agit de "Bastian Gardel". Je fais clique-droit sur l'icône de Bastien et **run All Transforms**. De votre côté, sélectionnez une identité trouvée pour votre domaine et exécutez vos transformations. N'oubliez pas de faire une capture et commenter. 
-
-![Transforms Gardel](images/transform_gardel.png)
-
-Lorsque les transformations seront terminées, nous aurons un graphique supplémentaire de quelques adresses email associées à Bastien Gardel. On y trouve aussi une clé PGP qui lui appartient, peut-être. J'ai vérifié avec Bastien et les adresses sont en effet des adresses email qu'il utilise ou il a utilisées. Dans certains cas, les résultats peuvent être assez étranges.
-
-![email Bastien](images/results_gardel.png)
-
-N'hésitez pas à tester d'autres domaines.
 
 ## Recherche d'une identité
 
-Si vous avez déjà une identité d'une personne que vous voulez rechercher, vous pouvez procéder directement avec Maltego. Commencez avec un nouveau graphique et rajoutez une personne avec l'entité Person. 
+Ci-dessous ce trouve les résultats d'une recherche sur Maude Issolah. Les adresses emails ainsi que les numéros de téléphone ne sont pas liée à elle, mais il y a quelques résultats web intéressant.  
 
-![Person](images/person.png)
+![](images/Issolah_Maude.png)
 
-Je change l'identité de la personne en double cliquant sur l'icône et en introduisant mon nom.
+Le liens GitHub retrouve un projet GEN que Maude avait fait. Swisslinux est un forum qu'elle a utilisé et whyopencomputing un PDF (ci-dessous) qu'elle à fait en 2018.
 
-![Person ARS](images/person_ars.png)
+![](images/rapport_Issolah.png)
 
-Ensuite, j'execute toutes les transformations sur la personne comme on l'a déjà fait pour les éléments du domaine.
+Pour les résultats sur moi même, les adresses emails et les numéros de téléphone sont faux. Il trouve mon facebook et linkedin, mon profil sur le site ggconsultingsarl, une vielle présentation que j'avais faite sur prezi.
 
-![Run all Person](images/run_all_person.png)
-
-Dans mon cas, je trouve mon adresse email de la HEIG-VD et l'une de mes adresses prives.
-
-![Result ARS](images/result_ars.png)
-
-Faites quelques recherches, avec des noms que vous connaissez (vous-même y-compris). Est-ce que vous arrivez à trouver des adresses email associées ? N'oubliez pas vos captures et commentaires.
+![](images/Matthieu_Godi.png)
 
 ## Recherche d'une adresse email
 
-Si vous n'avez pas le nom d'une personne, mais une adresse email, vous pouvez aussi commencer votre recherche directement par l'adresse en question. Dans ce cas là, le résultat de la recherche pourrait vous trouver l'identité associée à cette adresse ainsi que d'autres détails comme, par exemple, une organisation, un numéro de téléphone, etc.
+Pour la recherche sur une adresse email, mon adresse personnelle à été utilisée. Malheureusement, il n'y a que peu de résultat. Seul l'adresse mail d'un ami ressort (pour un raison qui m'est inconnue) qui est d'ailleurs pas exactement juste car ce n'est pas .co mais .com.
 
-Pour chercher une adresse email, il suffit d'utiliser l'entité **Email Address** dans la palette.
+![](images/matthieu_email.png)
 
-![Email search](images/email_search.png)
+Lors que nous allons plus loin sur l'adresse mail de mon ami, nous obtenons beaucoup plus de résultats. Les adresses emails sont toutes fausses, de même pour les numéros de téléphone. 
 
-Réalisez des recherches avec quelques adresses que vous connaissez, de préférence liées à une organisation. Est-ce que ça vous permet de retrouver des liens intéressants avec l'organisation ? Qu'avez-vous retrouvé en plus ? Accompagnez vos réponses avec des captures d'écran et commentaires.
+![](images/justin_email.png)
+
+Lors de la recherche avec mon adresse de l'école, il y a pas plus de résultat.
+
+![](images/matthieu_email_heig.png)
 
 
 ## Installation et utilisation de nouvelles transformations
@@ -127,19 +97,17 @@ Vous pouvez chercher vous même des informations sur d'autres transformations di
 
 Procédez maintenant à relancer les recherches que vous avez déjà effectuées, mais utilisant exclusivement les transformations que vous venez d'installer. Est-ce que vous arrivez à trouver d'autres informations ? N'oubliez pas votre capture et commentaires.
 
-## Et maintenant ?
+Virus Total nous trouve beaucoup d'information sur le réseau "heig-vd.ch".
 
-Est-ce qu'il vous restent encore des transforms gratuites à installer ? Vous pouvez donc procéder à l'installation d'autres transformations intéressantes comme Have I Been Pwned?, dataprovider, Farsight DNSB, FullContact, etc. Avoir un plus grand nombre de transformations installés augmente considérablement les résultats. Par contre, le volume d'information peut être difficile à gérer et à comprendre. Vous pouvez dans tous le cas, appliquer les transformations une par une au lieu de toutes en même temps.
+![](images/VirusTotal.png)
 
-Faites une petite recherche sur Internet pour comprendre le type d'information que chaque transformation vous apporte (ce n'est pas toujours très clair...). Remplissez un petit tableau avec ces informations. Ça peut devenir utile quand vous avez beaucoup de transformations installées.
+Shodan ne trouve pas grand chose.
 
-Utilisez donc ces nouvelles transformations que vous avez installé.
+![](images/Shodan.png)
 
-Tous les résultats sur le graph sont utilisables pour lancer des nouvelles recherches. Un clique-droit sur les différentes icônes vous permet de lancer des transformations à partir de cette entité. Vous pouvez lancer des transformations sur des numéros de téléphone, des services, des adresses IP, des coordonnées, des documents, etc.
+Passive Total trouve quelques informations mais rien d'extraordinaire.
 
-Utilisez quelques résultats retrouvés lors de vos recherches précédentes pour lancer des transformations sur d'autres entités de types différents à celles que vous avez déjà testé (Person, Domain, email). Est-ce que vous arrivez à trouver quelque chose d'intéressant ? Est-ce que le graph devient difficile à gérer ? Documentez vos activités avec des captures et des commentaires.
-
-[GitHub est aussi une source précieuse de transformations](https://github.com/search?q=maltego+transform) qui ne se trouvent pas dans le Hub. Est-ce que vous avez une idée pour une transformation ? Vous pouvez [les developper vous même](https://docs.maltego.com/support/solutions/articles/15000017605-writing-local-transforms-in-python) aussi en python ! 
+![](images/passive_total.png)
 
 # Livrable
 
