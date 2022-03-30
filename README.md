@@ -175,11 +175,23 @@ Commençons par VirusTotal Public API. VirusTotal peut analyser des fichiers et 
 
 > ![mt_14](images/mt_14.png)
 >
-> Virus total révèle de nouvelles informations telles que des certificats, des fichiers de type texte ou pdf ainsi que des mots clé. Les mots clés permettent de se donner une idée sur le centre d'activité correspondant au domaine. SIB étant projet web pour un institut médical aussi présent dans le milieu scolaire, on peut voir que ces mots clés s'en rapprochent grandement.
+> VirusTotal révèle de nouvelles informations telles que des certificats, des fichiers de type texte ou pdf ainsi que des mots clé. Les mots clés permettent de se donner une idée sur le centre d'activité correspondant au domaine. SIB étant un projet web pour un institut médical aussi présent dans le milieu scolaire, on peut voir que ces mots clés s'en rapprochent grandement.
 >
 > Les fichiers ainsi que les sous-domaines sont également analysés par VirusTotal. La petite puce verte indique que le composant analysé est sans danger, alors que la puce grise indique qu'aucune menace n'a été détectée. 
 
 On va maintenant installer la Shodan Tranform. Shodan.io est un "analyseur d'Internet". Il donne des informations intéressantes (aussi de point de vue de la sécurité) sur des dispositifs connectés, des serveurs et services, etc. Pour comprendre ce que Shodan vous apporte à travers le Transform Maltego et comment ça marche, [vous pouvez lire cet article](http://maltego.blogspot.com/2016/04/abracadabra-its-shodan-time.html). Vous aurez besoin de [créer un compte](https://account.shodan.io/register) pour utiliser la transformation.
+
+> En lançant Shodan sur le domaine `sib.swiss`, de nombreuses nouvelles informations sont trouvées :
+>
+> ![mt_16](images/mt_16.png)
+>
+> Une adresse IP est d'abord trouvée qui correspond certainement à l'adresse du serveur hébergeant ce domaine. En effectuant des recherches dessus il est possible de trouver des ports ouverts ou une bannière de requête par exemple.
+>
+> ![mt_17](images/mt_17.png)
+>
+> Il est également possible de trouver où est la location physique de cette adresse ou encore son ISP : 
+>
+> ![mt_18](images/mt_18.png)
 
 PassiveTotal est une plateforme de recherche de menaces. Le but est de contribuer à analyser la sécurité de systèmes pour prévenir les attaques avant qu'elles n 'arrivent. Pour activer cette transformation, il faut commencer par la [création d'un compte](https://community.riskiq.com/registration). Vous accédez ensuite à votre espace utilisateur (account) et révélez les valeurs cachées dans API ACCESS. Attention, la transformation vous demande un user et une clé (key). Ces deux valeurs correspondent respectivement à votre adresse email et à la valeur identifiée comme "secret" sur votre compte riskiq. Pour plus d'information sur cette transformation, ce référer à [cet article](https://blog.passivetotal.org/brand-new-maltego-transforms-and-code/).
 
@@ -191,7 +203,7 @@ PassiveTotal est une plateforme de recherche de menaces. Le but est de contribue
 >
 > ![mt_13](images/mt_13.png)
 >
-> On peut voir que les résultats correspondent.
+> On peut voir que les résultats obtenu par Maltego et ceux obtenus par la ligne de commande correspondent.
 
 Vous pouvez chercher vous même des informations sur d'autres transformations disponibles.
 
@@ -205,8 +217,8 @@ Faites une petite recherche sur Internet pour comprendre le type d'information q
 
 | Transform          | Utilité                                                      |
 | ------------------ | ------------------------------------------------------------ |
-| Have I Been Pwned? | Vérifie si un mail, mot de passe ou numéro de téléphone a été leaké |
-| dataprovider       | Base de données de domaines (transform plus disponible )     |
+| Have I Been Pwned? | Vérifie si un mail, mot de passe ou numéro de téléphone a été rendu publique. |
+| dataprovider       | Base de données de domaines (transformation plus disponible) |
 | Farsight DNSDB     | Base de données DNS                                          |
 | FullContact        | Base de données pour mails, numéros de téléphone, personne, compagnie, <br />comptes twitter, domaines et alias. |
 
@@ -219,6 +231,16 @@ Utilisez donc ces nouvelles transformations que vous avez installé.
 Tous les résultats sur le graph sont utilisables pour lancer des nouvelles recherches. Un clique-droit sur les différentes icônes vous permet de lancer des transformations à partir de cette entité. Vous pouvez lancer des transformations sur des numéros de téléphone, des services, des adresses IP, des coordonnées, des documents, etc.
 
 Utilisez quelques résultats retrouvés lors de vos recherches précédentes pour lancer des transformations sur d'autres entités de types différents à celles que vous avez déjà testé (Person, Domain, email). Est-ce que vous arrivez à trouver quelque chose d'intéressant ? Est-ce que le graph devient difficile à gérer ? Documentez vos activités avec des captures et des commentaires.
+
+> Cela peut arriver après une nouvelle transformation que des liens se forment entre des éléments déjà présent ce qui rajoute de nouvelles flèches et rend le schéma moins lisible 
+>
+> ![mt_19](images/mt_19.png)
+>
+> Certain éléments contiennent également beaucoup d'informations ce qui peut vite surcharger le graphe :
+>
+> ![mt_20](images/mt_20.png)d
+>
+> Ici, c'est le résultat de l'analyse de 3 points différents, cela représente déjà énormément d'informations. Il est de plus en plus difficile de partager les information utiles de celles erronées ou simplement inutilisables. 
 
 [GitHub est aussi une source précieuse de transformations](https://github.com/search?q=maltego+transform) qui ne se trouvent pas dans le Hub. Est-ce que vous avez une idée pour une transformation ? Vous pouvez [les developper vous même](https://docs.maltego.com/support/solutions/articles/15000017605-writing-local-transforms-in-python) aussi en python ! 
 
