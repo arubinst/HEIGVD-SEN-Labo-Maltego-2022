@@ -42,11 +42,13 @@ Nous pouvons commencer à travailler utilisant la config de base. La transformat
 
 ## Une simple reconnaissance de réseau
 
-
+Ci-dessous se trouve une capture d'écran du résultat d'une reconnaissance du réseau "heig-vd.ch".  On peut y voir des pages web, des domaines plus ou moins pertinent ainsi que des personnes.
 
 ![](images/reseau-heig1.png)
 
 ![](images/reseau-heig2.png)
+
+Parmi les personnes identifié par Maltego, il a été choisi d'aller plus loins pour la personne de Bastian Gardel. Nous y trouvons plusieurs adresse email, des numéros de téléphone faux ainsi que des pages web comme Instagram et Facebook ou encore Youtube.
 
 ![](images/bastian_gardel.png)
 
@@ -58,7 +60,7 @@ Ci-dessous ce trouve les résultats d'une recherche sur Maude Issolah. Les adres
 
 ![](images/Issolah_Maude.png)
 
-Le liens github retrouve un projet GEN que Maude avait fait. Swisslinux est un forum qu'elle as utilisé et whyopencomputing un pdf (ci-dessous) qu'elle à fait en 2018.
+Le liens GitHub retrouve un projet GEN que Maude avait fait. Swisslinux est un forum qu'elle a utilisé et whyopencomputing un PDF (ci-dessous) qu'elle à fait en 2018.
 
 ![](images/rapport_Issolah.png)
 
@@ -68,11 +70,15 @@ Pour les résultats sur moi même, les adresses emails et les numéros de télé
 
 ## Recherche d'une adresse email
 
-
+Pour la recherche sur une adresse email, mon adresse personnelle à été utilisée. Malheureusement, il n'y a que peu de résultat. Seul l'adresse mail d'un ami ressort (pour un raison qui m'est inconnue) qui est d'ailleurs pas exactement juste car ce n'est pas .co mais .com.
 
 ![](images/matthieu_email.png)
 
+Lors que nous allons plus loin sur l'adresse mail de mon ami, nous obtenons beaucoup plus de résultats. Les adresses emails sont toutes fausses, de même pour les numéros de téléphone. 
+
 ![](images/justin_email.png)
+
+Lors de la recherche avec mon adresse de l'école, il y a pas plus de résultat.
 
 ![](images/matthieu_email_heig.png)
 
@@ -91,13 +97,15 @@ Vous pouvez chercher vous même des informations sur d'autres transformations di
 
 Procédez maintenant à relancer les recherches que vous avez déjà effectuées, mais utilisant exclusivement les transformations que vous venez d'installer. Est-ce que vous arrivez à trouver d'autres informations ? N'oubliez pas votre capture et commentaires.
 
-
+Virus Total nous trouve beaucoup d'information sur le réseau "heig-vd.ch".
 
 ![](images/VirusTotal.png)
 
-
+Shodan ne trouve pas grand chose.
 
 ![](images/Shodan.png)
+
+Passive Total trouve quelques informations mais rien d'extraordinaire.
 
 ![](images/passive_total.png)
 
