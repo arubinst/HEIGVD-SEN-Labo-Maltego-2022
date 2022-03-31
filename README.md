@@ -1,5 +1,7 @@
 # Labo découverte Maltego
 
+Auteur : Axel Vallon
+
 ## Introduction
 
 Maltego est un outil de data mining capable d'explorer une variété de ressources de données open-source et utilise ces données pour créer des graphs permettant d'analyser des éventuelles connexions identifiées entre ces différentes ressources.
@@ -64,6 +66,28 @@ Dès que **Run Transform** est sélectionné, Maltego commence son travail en tr
 
 Vous pouvez voir dans les images ci-dessous que toutes sortes d'informations apparaissent, y compris les serveurs DNS, intranet, les sites qui peuvent avoir une certaine relation avec la cible, les emails associés, les serveurs de messagerie. Qu'est-ce que vous trouvez pour votre cas ? Faites des captures d'écran pour votre rendu et ajoutez vos commentaires !
 
+**Réponse**
+
+Nous avons séléctionné la société BM-Emploi, la même que pendant le projet AST
+
+![1_bm_emploi_gauche](images/1_bm_emploi_gauche.png)
+
+Sur cette première image, la gauche du graphe complet, nous visualisons les différents noms de domaine et quelques adresses mail interne de l'entreprise.
+
+![1_bm_emploi_milieu](images/1_bm_emploi_milieu.png)
+
+Sur celle du milieu, quelques page et articles liées à BM-Emploi, leur site internet, l'hébergeur de leur site internet (Infomaniak), à nouveau quelques noms de domaine et certain numéro de téléphone.
+
+![1_bm_emploi_droite](images/1_bm_emploi_droite.png)
+
+Nous avons une répétions des autres types d'éléments découvert précédemment.
+
+
+
+------
+
+
+
 ![Machines, names, emails](images/machines_names_emails.png)
 
 ![Servers](images/servers.png)
@@ -102,6 +126,24 @@ Dans mon cas, je trouve mon adresse email de la HEIG-VD et l'une de mes adresses
 
 Faites quelques recherches, avec des noms que vous connaissez (vous-même y-compris). Est-ce que vous arrivez à trouver des adresses email associées ? N'oubliez pas vos captures et commentaires.
 
+**Réponses**
+
+Premièrement, nous avons lancé un scan sur notre personne, et avons découvert très peu d'informations étonnantes. Cependant, nous avons approfondi certains points. 
+
+![3_personne_vallon](images/3_personne_vallon.png)
+
+
+
+Nous avons fait un nouveau scan supplémentaire sur rootme.org, et il a été possible de trouver mon profile rootme, avec mon nombre de point, ce qui n'est pas possible sur Google actuellement.
+
+![3_rootme_profile](images/3_rootme_profile.png)
+
+
+
+Sur l'image ci-dessous, Le dernier point intéressant trouvé est le lien entre 2 personnes. J'ai effectué une recherche sur Nicolas Hungerbühler, et Maltego a été capable de faire le lien être entre lui et moi. Les trois choses interéssante sont le fait qu'on soit les 2 sur rootme, qu'on ait les 2 un compte github, mais le plus intéressant est que nous 2 somme lié à thehugoawards, qui est prix littéraire américain créé en 1953 et décerné chaque année aux meilleures œuvres de science-fiction et de fantasy de l'année écoulée. Nous pouvons en déduire que nous 2 aimons ce genre de style litteraire, et exploiter ceci dans une attaque.
+
+![3_trouver_lien](images/3_trouver_lien.png)
+
 ## Recherche d'une adresse email
 
 Si vous n'avez pas le nom d'une personne, mais une adresse email, vous pouvez aussi commencer votre recherche directement par l'adresse en question. Dans ce cas là, le résultat de la recherche pourrait vous trouver l'identité associée à cette adresse ainsi que d'autres détails comme, par exemple, une organisation, un numéro de téléphone, etc.
@@ -111,6 +153,16 @@ Pour chercher une adresse email, il suffit d'utiliser l'entité **Email Address*
 ![Email search](images/email_search.png)
 
 Réalisez des recherches avec quelques adresses que vous connaissez, de préférence liées à une organisation. Est-ce que ça vous permet de retrouver des liens intéressants avec l'organisation ? Qu'avez-vous retrouvé en plus ? Accompagnez vos réponses avec des captures d'écran et commentaires.
+
+**Réponse : **
+
+Le premier test sur les mails fait est sur mes deux boîtes mail. On voit dans les deux cas que ces mails existent, ce qui est déjà une information très intéressante. Deuxièmement, on voit la fiabilité de ces adresses, et c'est intéressant de voir si ce fournisseur a une certaine valeur, à l'inverse d'une adresse jetable.
+
+![4_axel_vallon](images/4_axel_vallon.png)
+
+Ensuite, nous avons utilisé différentes adresses à la HEIG, et très peu d'informations sont sorties, en dehors du faire que nous sommes dans la même organisation.
+
+![4_heig-vd_webwail](images/4_heig-vd_webwail.png)
 
 
 ## Installation et utilisation de nouvelles transformations
@@ -127,6 +179,41 @@ Vous pouvez chercher vous même des informations sur d'autres transformations di
 
 Procédez maintenant à relancer les recherches que vous avez déjà effectuées, mais utilisant exclusivement les transformations que vous venez d'installer. Est-ce que vous arrivez à trouver d'autres informations ? N'oubliez pas votre capture et commentaires.
 
+**Réponse**
+
+### VirusTotal
+
+Nous avons lancé cette transformation uniquement, et avons récupéré ceci:
+
+![5_bm_virustotal](images/5_bm_virustotal.png)
+
+Les différents point supplémentaires sont :
+
+- adresse IP du serveur disponible.
+- Information liés à WhoIS, qui permet d'avoir des informations supplémentaire sur un nom de domaine, qui le possède, et depuis quand il existe.
+
+Cette recherche sur des individus ou des adresses mail n'a rien donné 
+
+## PassiveTotale
+
+Nous avons lancé cette transformation uniquement, et avons récupéré ceci:
+
+![5_bm_passivetotal](images/5_bm_passivetotal.png)
+
+Les différents point supplémentaires par rapport à avant sont :
+
+- adresse IP du serveur disponible.
+- Informations sur les différents certificats. 
+- Certaines informations sur la sécurité interne.
+
+Cette recherche sur des individus ou des adresses mail n'a rien donné 
+
+### Shodan
+
+Shodan n'a donné aucun résultat sur BM-Emploi, ni l'HEIG. Cela doit signifier qu'aucun appareil connecté n'est connu pour ces organisations.
+
+![5_bm_shodan](images/5_bm_shodan.png)
+
 ## Et maintenant ?
 
 Est-ce qu'il vous restent encore des transforms gratuites à installer ? Vous pouvez donc procéder à l'installation d'autres transformations intéressantes comme Have I Been Pwned?, dataprovider, Farsight DNSB, FullContact, etc. Avoir un plus grand nombre de transformations installés augmente considérablement les résultats. Par contre, le volume d'information peut être difficile à gérer et à comprendre. Vous pouvez dans tous le cas, appliquer les transformations une par une au lieu de toutes en même temps.
@@ -140,6 +227,48 @@ Tous les résultats sur le graph sont utilisables pour lancer des nouvelles rech
 Utilisez quelques résultats retrouvés lors de vos recherches précédentes pour lancer des transformations sur d'autres entités de types différents à celles que vous avez déjà testé (Person, Domain, email). Est-ce que vous arrivez à trouver quelque chose d'intéressant ? Est-ce que le graph devient difficile à gérer ? Documentez vos activités avec des captures et des commentaires.
 
 [GitHub est aussi une source précieuse de transformations](https://github.com/search?q=maltego+transform) qui ne se trouvent pas dans le Hub. Est-ce que vous avez une idée pour une transformation ? Vous pouvez [les developper vous même](https://docs.maltego.com/support/solutions/articles/15000017605-writing-local-transforms-in-python) aussi en python ! 
+
+### Have I been Pwned
+
+Le résultat était vide pour le nom de domaine BM-Emploi, donc il est possible de supposer que BM-Emploi n'a pas été pwned. Après différents essai sur entité comme la HEIG-VD ou même la commune de Rolle, cela n'a pas donnée de résultat
+
+![image-20220331170026799](images/image-20220331170026799.png)
+
+Cependant, après recherche, cette transformation est utile sur les numéro de téléphone et les adresse mail. Mon adresse mail personnelle a eu une "breach", ce qui signifie que mes données ont été dévoillée sur le site mangadex.org. 
+
+### Dataprovider
+
+Transformation non existante.
+
+### DNSB
+
+Transformation non existante.
+
+ ### Farsight
+
+Permet d'avoir une recherche DNS en interne d'une organisation plus intelligente. Il est vrai qu'il est possible d'avoir une meilleure vue de ce qui existe, en comparant la transformation de base et celle-ci. 
+
+![6_farsight_gauche](images/6_farsight_gauche.png)
+
+![6_farsight_droite](images/6_farsight_droite.png)
+
+### IPInfo
+
+Nous avons installé un transformer supplémentaire, et on y voit seulement la localisation de Infomaniak, qui héberge le site web de BM-Emploi. La localisation trouvée est (46.2022,6.1457), soit situé dans une Eglise. Cette donnée n'est pas très pertinante.
+
+![image-20220331171549895](./images/image-20220331171549895.png)
+
+## Fullcontact
+
+Fullcontact permet de récupérer des informations sur une entité, et celle-ci m'a grandement étonnée par sa précision, on y voit des adresses, la date de création, et même le nombre approximatif d'employé. On peut avoir les informations de base d'une entreprise en même pas 10s avec cette API.
+
+![6_fullcontact_bm](images/6_fullcontact_bm.png)
+
+### Résultat final
+
+En finalité, on se retrouve avec trop d'informations, et il devient compliqué de les gérer. Il est important de filtrer ce que l'on veut et ce que l'on ne veut pas pour pouvoir avancer.
+
+![image-20220331172953325](images/image-20220331172953325.png)
 
 # Livrable
 
